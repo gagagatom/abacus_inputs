@@ -1,4 +1,5 @@
 ##submit abacus_gpu_job on WHU_HPC
+##Usage:Submit the file in the same directory as the INPUT file
 #!/bin/bash
 #SBATCH --partition=gpu
 #SBATCH --ntasks-per-node=1
