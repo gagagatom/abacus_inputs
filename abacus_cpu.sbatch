@@ -1,4 +1,5 @@
-#
+##submit abacus_gpu_job on WHU_HPC
+##Usage:Submit the file in the same directory as the INPUT file
 #!/bin/bash
 #SBATCH --partition=xh321
 #SBATCH --nodes=1
@@ -8,9 +9,8 @@
 cd $SLURM_SUBMIT_DIR
 module load singularity
 
-IMG=/scratch/xueyingwen/software/abacus-cuda.sif
 export OMP_NUM_THREADS=1
 singularity exec --cleanenv \
   --bind /project/$(whoami),/scratch/$(whoami) \
-  $IMG \
+  /scratch/xueyingwen/software/abacus-cuda.sif \
   mpirun -np $SLURM_NTASKS abacus
